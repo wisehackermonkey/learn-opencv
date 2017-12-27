@@ -16,10 +16,17 @@ while(True):
 
     # Our operations on the frame come here
     # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    blur = cv2.GaussianBlur(frame, (55,55), 0)
+    # blur = cv2.GaussianBlur(frame, (55,55), 0)
 
     # Display the resulting frame
-    cv2.imshow('frame',blur)
+    cv2.imshow('Blur',blur)
+
+    # Dilate video
+    kernal = np.ones((5,5), 'uint8')
+    dilate = cv2.dilate(frame, kernal, iterations=1)
+
+    cv2.imshow('Diated', dilate)
+
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
