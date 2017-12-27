@@ -11,7 +11,7 @@ while(True):
 
     b, g, red_colors = cv2.split(frame)
 
-    empty_image = np.empty([height, width, 1],  'uint8')
+    empty_image = np.ones([height, width, 3],  'uint8')
 
 
     cv2.imshow("Red Colors", empty_image)
@@ -22,7 +22,7 @@ while(True):
     kernal = np.ones((5,5), 'uint8')
     dilate = cv2.dilate(frame, kernal, iterations=1)
 
-    # cv2.imshow('Diated', dilate)
+    cv2.imshow('Diated', dilate)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
